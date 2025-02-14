@@ -6,21 +6,102 @@
     <title>GIF Overlay - Page 2</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background Video */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video covers the screen */
+            z-index: -1; /* Places the video behind the content */
+        }
+
+        /* GIF Container */
+        .gif-container {
+            position: relative;
+            z-index: 1; /* Ensures GIFs appear above the background video */
+        }
+
+        .gif {
+            width: 15vw; /* Adjust size of gifs */
+            margin: 10px;
+        }
+
+        h2 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: white;
+            z-index: 1;
+        }
+
+        /* Audio Player */
+        #audio-player {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            width: 80%;
+        }
+
+        /* Ensuring responsive layout for small screens */
+        @media only screen and (max-width: 768px) {
+            .gif {
+                width: 30vw; /* Increase size of gifs for smaller screens */
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .gif {
+                width: 40vw; /* Increase size of gifs further for phones */
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Background Video -->
     <video autoplay muted loop playsinline id="background-video">
         <source src="osa.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
+    <!-- GIF Container -->
     <div class="gif-container">
         <img src="gif1.gif" class="gif">
         <img src="gif2.gif" class="gif">
         <img src="gif3.gif" class="gif">
     </div>
 
+    <!-- Now Playing text -->
     <h2>Now Playing: osa.mp3</h2>
-    <audio id="audio-player" autoplay muted controls>
+
+    <!-- Audio Player -->
+    <audio id="audio-player" autoplay controls>
         <source src="osa.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
@@ -33,5 +114,6 @@
             audio.play().catch(error => console.log("Autoplay blocked:", error));
         });
     </script>
+
 </body>
 </html>
