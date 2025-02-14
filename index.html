@@ -29,6 +29,7 @@
             width: auto;
             max-width: 20vw;
             height: auto;
+            opacity: 0; /* Start hidden */
         }
 
         /* Position each image */
@@ -70,25 +71,88 @@
             font-weight: bold;
             color: white;
         }
+
+        /* Animations */
+        @keyframes slideUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Add classes for animation effects */
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        .pop-in {
+            animation: popIn 0.6s ease-out forwards;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="nav">utkarsh/uzis</div>
-        <div class="menu">1629</div>
+        <div class="nav fade-in">utkarsh/uzis</div>
+        <div class="menu pop-in">1629</div>
         
-        <img src="1.jpg" class="image img1">
-        <img src="2.jpg" class="image img2">
-        <img src="3.jpg" class="image img3">
-        <img src="4.jpg" class="image img4">
-        <img src="5.jpg" class="image img5">
-        <img src="6.jpg" class="image img6">
-        <img src="7.jpg" class="image img7">
-        <img src="8.jpg" class="image img8">
+        <img src="1.jpg" class="image img1 slide-up">
+        <img src="2.jpg" class="image img2 slide-up">
+        <img src="3.jpg" class="image img3 slide-up">
+        <img src="4.jpg" class="image img4 fade-in">
+        <img src="5.jpg" class="image img5 fade-in">
+        <img src="6.jpg" class="image img6 pop-in">
+        <img src="7.jpg" class="image img7 pop-in">
+        <img src="8.jpg" class="image img8 fade-in">
         
-        <div class="play">PLAY</div>
+        <div class="play slide-up">PLAY</div>
     </div>
+
+    <script>
+        document.addEventListener("scroll", function () {
+            const elements = document.querySelectorAll('.fade-in, .slide-up, .pop-in');
+            
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    element.classList.add('animated'); // This will trigger the animation class
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
