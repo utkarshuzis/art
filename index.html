@@ -25,11 +25,13 @@
         }
 
         .image {
-            position: absolute;
-            width: auto;
-            max-width: 20vw;
-            height: auto;
-            opacity: 0; /* Start hidden */
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 20vw; /* Set the max width */
+    max-height: 30vh; /* Set the max height to ensure the images don’t get too tall */
+    object-fit: contain; /* Ensures the images maintain their aspect ratio */
+}
         }
 
         /* Position each image */
