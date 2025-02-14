@@ -31,84 +31,21 @@
             height: auto;
         }
 
-        /* Position each image */
-        .img1 { top: 10%; left: 20%; width: 200px; }
-        .img2 { top: 20%; left: 50%; width: 250px; }
-        .img3 { top: 40%; left: 30%; width: 300px; }
-        .img4 { top: 50%; left: 60%; width: 220px; }
-        .img5 { top: 70%; left: 40%; width: 280px; }
-        .img6 { top: 10%; left: 70%; width: 180px; }
-        .img7 { top: 30%; left: 10%; width: 250px; }
-        .img8 { top: 60%; left: 80%; width: 260px; }
-        
-        /* Navigation Styles */
-        .nav {
+        /* Center the countdown timer */
+        .countdown-container {
             position: absolute;
-            top: 10px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
-            font-weight: bold;
-            color: black;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
         }
 
-        .menu {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 20px;
+        .countdown-timer {
+            font-size: 24px; /* Adjust size as needed */
             font-weight: bold;
-            color: black;
-        }
-
-        .play {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .menu a {
+            color: #030303;
             text-decoration: none;
-            color: black;
-        }
-
-        /* Responsive design adjustments */
-        @media only screen and (max-width: 768px) {
-            .image {
-                max-width: 50vw; /* Resize images for smaller screens */
-                max-height: 40vh; /* Ensure they don't overflow */
-            }
-
-            /* Adjust the position of the images on smaller screens */
-            .img1 { top: 5%; left: 10%; width: 150px; }
-            .img2 { top: 15%; left: 50%; width: 180px; }
-            .img3 { top: 35%; left: 25%; width: 220px; }
-            .img4 { top: 45%; left: 55%; width: 180px; }
-            .img5 { top: 65%; left: 35%; width: 240px; }
-            .img6 { top: 5%; left: 65%; width: 140px; }
-            .img7 { top: 25%; left: 5%; width: 200px; }
-            .img8 { top: 55%; left: 75%; width: 220px; }
-        }
-
-        /* For very small screens (like phones in portrait mode) */
-        @media only screen and (max-width: 480px) {
-            .image {
-                max-width: 60vw; /* Images are bigger on smaller screens */
-                max-height: 50vh; /* Make them more visible */
-            }
-
-            /* Adjust the positions for very small screens */
-            .img1 { top: 5%; left: 10%; width: 120px; }
-            .img2 { top: 20%; left: 40%; width: 160px; }
-            .img3 { top: 40%; left: 20%; width: 180px; }
-            .img4 { top: 55%; left: 50%; width: 160px; }
-            .img5 { top: 75%; left: 30%; width: 200px; }
-            .img6 { top: 5%; left: 70%; width: 120px; }
-            .img7 { top: 30%; left: 5%; width: 180px; }
-            .img8 { top: 60%; left: 70%; width: 200px; }
         }
     </style>
 </head>
@@ -116,9 +53,7 @@
 
     <div class="container">
         <div class="nav">utkarsh/uzis</div>
-        <div class="menu">
-            <a href="index2.html">1629</a>
-        </div>
+        <div class="menu">1629</div>
         
         <img src="1.JPG" class="image img1">
         <img src="2.JPG" class="image img2">
@@ -130,6 +65,16 @@
         <img src="8.JPG" class="image img8">
         
         <div class="play">PLAY</div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+            <a href="https://logwork.com/countdown-timer" class="countdown-timer" 
+               data-style="columns" data-timezone="Asia/Kolkata" 
+               data-date="2025-03-01 15:21" data-digitscolor="#030303">
+               *soon
+            </a>
+        </div>
     </div>
 
 </body>
